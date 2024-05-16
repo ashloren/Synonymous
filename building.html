@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Synonymous</title>
+<style>
+    #score {
+        font-size: 24px;
+	padding:5px
+;
+color:#06de7b;
+    }
+	#total-answers {color:red;}
+	#timer {color:red;}
+	input {border:1px solid #dcdcdc;height:30px;padding:5px;width:220px;
+	background:#fff;
+	}
+	p,button,title,input,h1 {
+  font-family: "Galada", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size:16px;
+}
+h2 {  font-family: "Galada", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color:#1E90FF;}
+button {background:#ff33b0;padding:5px;border:transparent;height:40px;color:white;width:120px;}
+.bold {color:red;}
+
+</style>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
+</style>
+</head>
+<body>
+
+<h1>Synonymous</h1>
+
+<h2>Building</h2>
+
+<p>Total Number of Possible Answers: <span id="total-answers">20</span></p>
+
+<input type="text" id="guess-input" placeholder="Enter your guess">
+<button onclick="checkGuess()">Submit</button>
+
+<p>Time left: <span id="timer">180</span> seconds</p>
+<p id="score">0</p>
+
+<script>
+    let answers = ['designing', 'construction', 'constructing', 'creating', 'accelerating', 'escalating', 'growing', 'heightening', 'home', 'house', 'abode', 'domicile', 'edifice', 'dwelling', 'residence', 'constructing', 'manufacturing', 'erection', 'architecture', 'engineering'];
+    let totalAnswers = 20;
+    let score = 0;
+    let timer = 180;
+    let intervalId;
+
+    function updateTotalAnswers() {
+        document.getElementById('total-answers').textContent = totalAnswers;
+    }
+
+    function updateScore() {
+        document.getElementById('score').textContent = `Score: ${score}`;
+    }
+
+    function checkGuess() {
+        let guess = document.getElementById('guess-input').value.toLowerCase();
+        if (answers.includes(guess)) {
+            score++;
+            totalAnswers--;
+            updateScore();
+            updateTotalAnswers();
+            if (totalAnswers === 20) {
+                clearInterval(intervalId);
+                alert('Congratulations! You guessed all the words.');
+            }
+        } else {
+            alert('Incorrect guess. Try again.');
+        }
+        document.getElementById('guess-input').value = '';
+    }
+
+    function startTimer() {
+        intervalId = setInterval(function() {
+            timer--;
+            document.getElementById('timer').textContent = timer;
+            if (timer <= 0) {
+                clearInterval(intervalId);
+                alert('Time is up!');
+            }
+        }, 1000);
+    }
+
+    startTimer();
+</script>
+
+</body>
+</html>
