@@ -35,18 +35,18 @@
     </style>
 </head>
 <body>
-    <h1>STUDY</h1>
+    <h1>DECLARE</h1>
     <p>Try to guess as many synonyms as you can!</p>
     <input type="text" id="word-input" placeholder="Type your guess..." autofocus>
     <button onclick="checkWord()">Submit</button>    <div id="counter">Correct Words: 0 / 0</div> 
     <ul id="correct-words"></ul>
     
     <h4>Can't Think of Any More Words...?</h4>
-    <a href="DECLARE.html">Next Word</a>
+        <a href="EXCUSE.html">Next Word</a>
 
     <script>
         // List of all four-letter words starting with 'E'
-        const wordList = ["APPLICATION", "CLASS", "CONSIDERATION", "COURSE", "DEBATE", "EXAMINATION", "EXERCISE", "INQUIRY", "INSPECTION", "INVESTIGATION", "RESEARCH", "REVIEW", "SUBJECT", "SURVEY", "ABSTRACTION", "ANALYZING", "ATTENTION", "COGITATION", "COMPARISON", "CONCENTRATION", "CONTEMPLATION", "CRAMMING", "DELIBERATION", "LESSON", "MEDITATION", "MEMORIZING", "MUSE", "MUSING", "PONDERING", "QUESTIONING", "READING", "REASONING", "REFLECTION", "REVERIE", "RUMINATION", "SCHOOLWORK", "SCRUTINY", "THOUGHT", "TRANCE", "WEIGHING"].map(word => word.toLowerCase()); // Add all 113 words here
+        const wordList = ["ADVANCE", "ALLEGE", "ATTEST", "AVER", "AVOW", "BLAZE", "CERTIFY", "CITE", "CONFESS", "CONTEND", "CONVEY", "DEMONSTRATE", "ENUNCIATE", "MANIFEST", "NOTIFY", "PASS", "PROFESS", "PROMULGATE", "PROPOUND", "PUBLISH", "REASSERT", "RENDER", "SHOW", "SOUND", "STATE", "SWEAR", "TESTIFY", "VALIDATE", "VOUCH"].map(word => word.toLowerCase()); // Add all 113 words here
         const correctGuesses = [];
         const totalWords = wordList.length;
 
